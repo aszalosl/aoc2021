@@ -13,6 +13,12 @@ class AocTest extends org.scalatest.funsuite.AnyFunSuite {
     val (c,d,e) = aoc2021.Day02.secondMethod(ps)
     assert(c === 15)
     assert(d === 60)
+  }
+  test("Day03.summit"){
+    val bits = List("00100", "11110", "10110", "10111","10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010")
+    assert(aoc2021.Day03.gammaEpsilon(bits)==198)
+    assert(aoc2021.Day03.generatorRating(0,bits,aoc2021.Day03.oneStepO2)=="10111")
+    assert(aoc2021.Day03.generatorRating(0,bits,aoc2021.Day03.oneStepCO2)=="01010")
 
   }
 
