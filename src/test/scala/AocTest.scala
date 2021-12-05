@@ -19,7 +19,11 @@ class AocTest extends org.scalatest.funsuite.AnyFunSuite {
     assert(aoc2021.Day03.gammaEpsilon(bits)==198)
     assert(aoc2021.Day03.generatorRating(0,bits,aoc2021.Day03.oneStepO2)=="10111")
     assert(aoc2021.Day03.generatorRating(0,bits,aoc2021.Day03.oneStepCO2)=="01010")
-
+  }
+  test("Day04.bingo"){
+    val top = List("83 40 67 98  4","50 74 31 30  3","75 64 79 61  5","12 59 26 25 72","36 33 18 54 10")
+    val matrix = (aoc2021.Day04.splitBingo(top,List()))
+    assert(matrix == List(List(36, 33, 18, 54, 10), List(12, 59, 26, 25, 72), List(75, 64, 79, 61, 5), List(50, 74, 31, 30, 3), List(83, 40, 67, 98, 4)))
   }
 
 }
