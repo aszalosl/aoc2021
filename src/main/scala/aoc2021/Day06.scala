@@ -17,7 +17,6 @@ object Day06 extends App {
 
     @tailrec
     def nextFish(l0:BigInt,l1:BigInt,l2:BigInt,l3:BigInt,l4:BigInt,l5:BigInt,l6:BigInt,l7:BigInt,l8:BigInt,c:Int): BigInt = {
-        //println(c)
         if (c<=0) l0+l1+l2+l3+l4+l5+l6+l7+l8
         else nextFish(l1,l2,l3,l4,l5,l6,l7+l0,l8,l0,c-1)
     }

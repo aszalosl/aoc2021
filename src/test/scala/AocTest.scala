@@ -25,12 +25,17 @@ class AocTest extends org.scalatest.funsuite.AnyFunSuite {
     val matrix = (aoc2021.Day04.splitBingo(top,List()))
     assert(matrix == List(List(36, 33, 18, 54, 10), List(12, 59, 26, 25, 72), List(75, 64, 79, 61, 5), List(50, 74, 31, 30, 3), List(83, 40, 67, 98, 4)))
   }
-  
   test("Day06"){
     assert(aoc2021.Day06.nextFish(0,1,1,2,1,0,0,0,0,18)== 26)
     assert(aoc2021.Day06.nextFish(0,1,1,2,1,0,0,0,0,80)== 5934)
-    assert(aoc2021.Day06.nextFish(0,1,1,2,1,0,0,0,0,256)== BigInt(26984457539L))
-    
+    assert(aoc2021.Day06.nextFish(0,1,1,2,1,0,0,0,0,256)== BigInt(26984457539L)) 
+  }
+test("Day07"){
+    assert(aoc2021.Day07.sumNum(11)== 66)
+    assert(aoc2021.Day07.sumNum(3)== 6)
+    assert(aoc2021.Day07.sumNum(2)== 3)
+    assert(aoc2021.Day07.sumNum(9)== 45)
+    assert(aoc2021.Day07.sumNum(10)== 55)
   }
 
 }
