@@ -1,7 +1,6 @@
 package aoc2021
 
 import scala.io.Source.fromResource
-import scala.annotation.tailrec
 object Day07 extends App {
     val items = fromResource("input07.txt").getLines()
     val nums = items.next.split(',').map(_.toInt).toList.sorted
