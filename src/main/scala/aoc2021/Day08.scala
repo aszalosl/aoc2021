@@ -2,7 +2,6 @@ package aoc2021
 
 import scala.io.Source.fromResource
 import scala.annotation.tailrec
-//import java.util.HashMap
 object Day08 extends App {
     val items = fromResource("input08.txt").getLines()
     val outputs = items.map(_.substring(61).split(' ').map(_.size)).flatten  
