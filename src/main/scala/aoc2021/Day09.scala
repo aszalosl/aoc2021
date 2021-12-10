@@ -1,15 +1,13 @@
 package aoc2021
 
 import scala.io.Source.fromResource
-//import scala.annotation.tailrec
+import scala.annotation.tailrec
 object Day09 extends App {
     val items = fromResource("input09.txt").getLines().map(_.map(_.toInt-48).toVector).toVector
     //println(items)
     val Big=10
     val sizeY=items.size
     val sizeX=items(0).size
-    println("X: " + sizeX.toString)
-    println("Y: " + sizeY.toString)
     def lower(x:Int, y:Int): Boolean = {
         if (y>0 && items(y)(x)>=items(y-1)(x)) false
         else if (y<sizeY-1 && items(y)(x)>=items(y+1)(x)) false
@@ -24,7 +22,7 @@ object Day09 extends App {
     println("Part 1: " + ps.sum.toString)
 
     def min4(a:Int,b:Int,c:Int,d:Int) = Math.min(Math.min(a,b),Math.min(c,d))
-
+    @tailrec
     def down(x:Int,y:Int): Tuple2[Int,Int] = {
         val n0 = items(y)(x)
         val n1 = if (x>0) items(y)(x-1) else Big
