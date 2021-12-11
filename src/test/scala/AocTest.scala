@@ -1,3 +1,6 @@
+import org.scalatest.Ignore
+
+@Ignore
 class AocTest extends org.scalatest.funsuite.AnyFunSuite {
   test("Day01.increments") {
     assert(aoc2021.Day01.increments(List(1,2,3)) === 2)
@@ -39,5 +42,30 @@ test("Day07"){
   }
 test("Day08"){
     assert(aoc2021.Day08.process("acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab", "cdfeb fcadb cdfeb cdbaf") == 5353)
+  }
+}
+class Day11Test extends org.scalatest.funsuite.AnyFunSuite {
+  val smallTable = aoc2021.Day11.makeTable(List("11111","19991","19191","19991","11111"),5,5)
+  val sampleTable = aoc2021.Day11.makeTable(List("5483143223","2745854711","5264556173","6141336146","6357385478","4167524645","2176841721","6882881134","4846848554","5283751526"), 10, 10)
+    
+test("rewrite"){
+    val ls = aoc2021.Day11.tableToString(smallTable,5,5)
+    assert(ls == List("11111","19991","19191","19991","11111"),"rewriting")
+  }
+test("one step on the small table"){
+    val s1 = aoc2021.Day11.oneStep(smallTable)
+    assert(aoc2021.Day11.tableToString(s1._1,5,5) == List("34543", "40004", "50005", "40004", "34543"))
+  }
+test("one step on the small table - variant"){
+    val s1 = aoc2021.Day11.manySteps(smallTable,1,0)
+    assert(aoc2021.Day11.tableToString(s1._1,5,5) == List("34543", "40004", "50005", "40004", "34543"))
+  }
+ignore("Day11 small, two steps"){
+    val s2 = aoc2021.Day11.manySteps(smallTable,2,0)
+    assert(aoc2021.Day11.tableToString(s2._1,5,5) == List("45654", "51115", "61116", "51115", "45654"))
+  }
+
+  ignore("Day11-2"){
+
   }
 }
