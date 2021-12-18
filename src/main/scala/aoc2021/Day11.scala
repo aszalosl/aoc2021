@@ -1,9 +1,8 @@
 package aoc2021
 
-import java.util.ArrayDeque
 import scala.annotation.tailrec
 import scala.io.Source.fromResource
-import scala.collection.MapView
+
 object Day11 extends App {
   type Table = Seq[(Int, Int, Int)]
   type Place = (Int, Int)
