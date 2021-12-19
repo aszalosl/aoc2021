@@ -44,6 +44,7 @@ test("Day08"){
     assert(aoc2021.Day08.process("acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab", "cdfeb fcadb cdfeb cdbaf") == 5353)
   }
 }
+@Ignore
 class Day11Test extends org.scalatest.funsuite.AnyFunSuite {
   val smallTable = aoc2021.Day11.makeTable(List("11111","19991","19191","19991","11111"),5,5)
   val sampleTable = aoc2021.Day11.makeTable(List("5483143223","2745854711","5264556173","6141336146","6357385478","4167524645","2176841721","6882881134","4846848554","5283751526"), 10, 10)
@@ -67,5 +68,45 @@ ignore("Day11 small, two steps"){
 
   ignore("Day11-2"){
 
+  }
+}
+class Day16Test extends org.scalatest.funsuite.AnyFunSuite {
+  test("from binary to integer"){
+    assert(0 == aoc2021.Day16.bin2int("0",0))
+    assert(0 == aoc2021.Day16.bin2int("000000",0))
+    assert(1 == aoc2021.Day16.bin2int("01",0))
+    assert(5 == aoc2021.Day16.bin2int("101",0))
+    assert(15 == aoc2021.Day16.bin2int("1111",0))
+  }
+  test("part 1"){
+    assert((2021,21) == aoc2021.Day16.decodeLiteral("110100101111111000101000",6,0) )
+    val t0 = aoc2021.Day16.string2bin("EE00D40C823060")
+    assert((14,51) == aoc2021.Day16.parse1(t0,0,56) )
+    val t1 = aoc2021.Day16.string2bin("8A004A801A8002F478")
+    assert((16,69) == aoc2021.Day16.parse1(t1,0,72) )
+    val t2 = aoc2021.Day16.string2bin("620080001611562C8802118E34")
+    assert((12,102) == aoc2021.Day16.parse1(t2,0,104) )
+    val t3 = aoc2021.Day16.string2bin("C0015000016115A2E0802F182340")
+    assert((23,106) == aoc2021.Day16.parse1(t3,0,112) )
+    val t4 = aoc2021.Day16.string2bin("A0016C880162017C3686B18A3D4780")
+    assert((31,113) == aoc2021.Day16.parse1(t4,0,120) )
+  }
+  test("part 2"){
+    val t0 = aoc2021.Day16.string2bin("C200B40A82")
+    assert(3 == aoc2021.Day16.parse2(t0,0,t0.size*4)._1 )
+    val t1 = aoc2021.Day16.string2bin("04005AC33890")
+    assert(54 == aoc2021.Day16.parse2(t1,0,t1.size*4)._1 )
+    val t2 = aoc2021.Day16.string2bin("880086C3E88112")
+    assert(7 == aoc2021.Day16.parse2(t2,0,t2.size*4)._1 )
+    val t3 = aoc2021.Day16.string2bin("CE00C43D881120")
+    assert(9 == aoc2021.Day16.parse2(t3,0,t3.size*4)._1 )
+    val t4 = aoc2021.Day16.string2bin("D8005AC2A8F0")
+    assert(1 == aoc2021.Day16.parse2(t4,0,t4.size*4)._1 )
+    val t5 = aoc2021.Day16.string2bin("F600BC2D8F")
+    assert(0 == aoc2021.Day16.parse2(t5,0,t5.size*4)._1 )
+    val t6 = aoc2021.Day16.string2bin("9C005AC2F8F0")
+    assert(0 == aoc2021.Day16.parse2(t6,0,t6.size*4)._1 )
+    val t7 = aoc2021.Day16.string2bin("9C0141080250320F1802104A08")
+    assert(1 == aoc2021.Day16.parse2(t7,0,t7.size*4)._1 )
   }
 }
