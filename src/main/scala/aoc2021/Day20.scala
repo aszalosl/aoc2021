@@ -34,7 +34,7 @@ object Day20 extends App {
     * @param xh right corner
     * @param yl upper corner
     * @param yh lower corner
-    * @param n parity of enhacement
+    * @param n parity of enhancement
     * @return the index in the lookup-table (first line of the input)
     */
   def code(x:Int, y:Int,d:Table,  xl:Int,xh:Int,yl:Int,yh:Int, n:Int):Int = {
@@ -86,7 +86,7 @@ object Day20 extends App {
     *
     * @param d picture
     */
-  def printTable(d:Table) = {
+  def printTable(d:Table):Unit = {
     val (xl,xh,yl,yh) = borders(d)
     for (y <- yl-1 to yh+1) {
       for (x <- xl-1 to xh+1 ) {
@@ -99,10 +99,10 @@ object Day20 extends App {
   /** input as list of strings */
   val items = fromResource("input20.txt").getLines().toList
   
-  val s0 = for (i <- 0 until 512 if items(0).charAt(i)=='#') yield i
+  val s0 = for (i <- 0 until 512 if items(i).charAt(i)=='#') yield i
   /** the lookup table */
   val s = s0.toSet
-  val d0 = for (j <- 2 until items.size; i <- 0 until items(2).size if items(j).charAt(i)=='#') yield (i,j)
+  val d0 = for (j <- 2 until items.length; i <- 0 until items(2).length if items(j).charAt(i)=='#') yield (i,j)
   /** original picture */
   val d = d0.toSet
   /** first follower */
@@ -119,6 +119,7 @@ object Day20 extends App {
     * @param s lookup table
     * @return picture after n enhancements
     */
+  @tailrec
   def enhance(n:Int, d:Table, s:Set[Int]): Table = {
     if (n==0) d
     else {
