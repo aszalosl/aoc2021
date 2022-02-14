@@ -65,13 +65,11 @@ case class Day23(state:String, cost:Int){
     case 6 => "lm"; case 7 => "lm"
   } else "abcde"
   /**
-    * It is possible to move from point A to point B
-    * @param a start position
-    * @param b goal position
-    * @return the path is empty?
-    */
-
-  def orderPair(i:Int) = {
+    * Auxiliary function to normalize the state description
+    * @param i index in the state string
+    * @return two character in right order
+    * */
+  def orderPair(i:Int):String = {
     val a = state.charAt(i)
     val b = state.charAt(i+1)
     if (a<b) s"$a$b" else s"$b$a"
